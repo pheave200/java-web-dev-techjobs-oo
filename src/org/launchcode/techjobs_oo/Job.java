@@ -78,6 +78,21 @@ public class Job {
         Job job = (Job) o;
         return getId() == job.getId();
     }
+
+    @Override
+    public String toString() {
+        String employer = this.getEmployer().getValue().equals("") ? "Data not available" : this.getEmployer().getValue();
+        String location = this.getLocation().getValue().equals("") ? "Data not available" : this.getLocation().getValue();
+        String positionType = this.getPositionType().getValue().equals("") ? "Data not available" : this.getPositionType().getValue();
+        String coreCompetency = this.getCoreCompetency().getValue().equals("") ? "Data not available" : this.getCoreCompetency().getValue();
+        return "\nID: " + this.getId() + "\n" +
+                "name: '" + name + "\n" +
+                "employer: " + employer + "\n" +
+                "location: " + location + "\n" +
+                "positionType: " + positionType + "\n" +
+                "coreCompetency: " + coreCompetency + "\n";
+    }
+
     @Override
     public int hashCode () {
         return Objects.hash(getId());
